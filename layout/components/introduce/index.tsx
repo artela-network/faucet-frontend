@@ -56,9 +56,10 @@ export default function Introduce({ getTaskList, taskInfo, captcha, initLoading 
         },
         onSuccess: (data) => {
             if (data.success) {
+                messageApi.success("Successed!")
                 setShowModal(false)
                 setTaskStatus(1)
-                getFaucetPass
+                getFaucetPass()
             } else {
                 messageApi.error(data.error)
                 getCaptcha()
@@ -93,7 +94,9 @@ export default function Introduce({ getTaskList, taskInfo, captcha, initLoading 
     }
     const getFaucetPass = async () => {
         setLoading(true)
+        console.log(11111)
         try {
+            console.log(2222,account,taskInfo)
             if (account && taskInfo) {
                 const res = await updateTask(account, taskInfo.id, '1');
                 if (res.success) {
@@ -290,7 +293,7 @@ export default function Introduce({ getTaskList, taskInfo, captcha, initLoading 
                     />
 
                     <div style={{ width: '600px' }}>
-                        <Button type='primary' disabled={taskStatus !== 0 && taskStatus !== 4 && taskStatus !== 5} style={taskStatus == 5 || taskStatus == 0 || taskStatus === 4 ? buttonStyle : buttonDisabledStyle} loading={loading || initLoading} onClick={() => getFaucet()} className='my_button'>claim tokens</Button>
+                        <Button type='primary' disabled={!isConnected && taskStatus !== 0 && taskStatus !== 4 && taskStatus !== 5} style={isConnected && (taskStatus == 5 || taskStatus == 0 || taskStatus === 4) ? buttonStyle : buttonDisabledStyle} loading={loading || initLoading} onClick={() => getFaucet()} className='my_button'>claim tokens</Button>
                     </div>
                     <div className='claim_res'>
                         {taskStatus !== 0 && taskStatus !== 5 && <div className='subTitle'>Claim Transactions</div>}
