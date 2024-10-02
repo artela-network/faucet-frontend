@@ -16,7 +16,7 @@ const getTaskListByAccount = async (account: string, id?: number) => {
     return data;
 }
 const getCaptchaData = async () => {
-    const response = await fetch(`${host}/api/captcha/captcha-data`, {
+    const response = await xfetch(`${host}/api/captcha/captcha-data`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
