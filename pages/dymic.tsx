@@ -82,7 +82,8 @@ const Dymic = ({ children }: { children: ReactNode }) => {
             adapter={authenticationAdapter}
             status={AUTHENTICATION_STATUS}
         >
-            <RainbowKitProvider modalSize="compact" locale="en-US" theme={darkTheme()}>
+            <RainbowKitProvider
+            modalSize="compact" locale="en-US" theme={darkTheme()}>
                 {children}
             </RainbowKitProvider>
         </RainbowKitAuthenticationProvider>

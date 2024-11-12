@@ -49,8 +49,8 @@ const artela = {
 const artelanet = defineChain(artela)
 
 const config = getDefaultConfig({
-  appName: 'Faucet',
-  projectId: '080999b35ff4ade22e595b9aeb16db24',
+  appName: 'faucet',
+  projectId: '211ca47adfa8b2c87b17f2d968c4752b',
   chains: [
     artelanet
   ],
